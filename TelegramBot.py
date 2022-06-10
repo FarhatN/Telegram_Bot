@@ -43,6 +43,11 @@ def add(message):
 
 @bot.message_handler(commands=['random'])
 def random_add(message):
+    date = 'сегодня'
+    task = random.choice(RANDOM_TASKS)
+    add_todo(date, task)
+    text = 'Задача ' + task + 'добавлена на дату' + date
+    bot.send_message(message.chat.id, text)
 
 
 
