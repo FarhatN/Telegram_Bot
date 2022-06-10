@@ -61,6 +61,7 @@ def show(message):
             text = text + '0' + task + '\n'
     else:
         text = 'Задач на эту дату нет'
+    bot.send_message(message.chat.id, text)
 
 
 bot.polling(none_stop=True)
