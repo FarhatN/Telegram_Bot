@@ -52,7 +52,7 @@ def random_add(message):
 
 @bot.message_handler(commands=['show', 'print'])
 def show(message):
-
+    command = message.text.split(maxsplit=1)
 
 
 bot.polling(none_stop=True)
