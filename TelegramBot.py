@@ -33,13 +33,12 @@ def help(message):
     bot.send_message(message.chat.id, HELP)
 
 
-@bot.message_handler(commands=['add', 'todo'])
+@bot.message_handler(commands=['add'])
 def add(message):
-    command = message.text.split(maxsplit=2)
-    date = command[1].lower()
-    task = command[2]
-    text = 'Задача ' + task + 'добавлена на дату' + date
-    bot.send_message(message.chat.id, text)
+    _, date, tail = message.text.split(maxsplit=2)
+    task = ' '.join([tail])
+    add_todo(date, task)
+    bot.send_message(message.chat.id, f'Задача {task} добавлена на дату {date}')
 
 
 @bot.message_handler(commands=['random'])
