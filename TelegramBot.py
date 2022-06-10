@@ -8,6 +8,9 @@ token = config('token')
 bot = telebot.TeleBot(token)
 
 
+RANDOM_TASKS = ['Сделать бота', 'Выучить Python', 'Решить задачу', 'Написать текст']
+
+
 HELP = '''
 /help  - вывести список доступных команд
 '''
