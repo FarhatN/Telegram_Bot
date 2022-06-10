@@ -13,7 +13,11 @@ RANDOM_TASKS = ['Сделать бота', 'Выучить Python', 'Решить задачу', 'Написать тек
 
 
 HELP = '''
+Список доступных команд:
 /help  - вывести список доступных команд
+/print  - напечать все задачи на заданную дату
+/todo - добавить задачу
+/random - добавить на сегодня случайную задачу
 '''
 
 
@@ -33,7 +37,7 @@ def help(message):
     bot.send_message(message.chat.id, HELP)
 
 
-@bot.message_handler(commands=['add'])
+@bot.message_handler(commands=['add', 'todo'])
 def add(message):
     _, date, tail = message.text.split(maxsplit=2)
     task = ' '.join([tail])
@@ -48,7 +52,7 @@ def random(message):
     bot.send_message(message.chat.id, f'Задача {task} добавлена на сегодня')
 
 
-@bot.message_handler(commands=['show'])
+@bot.message_handler(commands=['show', 'print'])
 def print_(message):
     date = message.text.split()[1].lower()
     if date in todos:
