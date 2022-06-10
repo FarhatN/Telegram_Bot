@@ -31,9 +31,8 @@ def help(message):
 
 @bot.message_handler(commands=['add'])
 def add(message):
-    print(message.text)
+    command = message.text.split(maxsplit=2)
     bot.send_message(message.chat.id, 'Команда принята')
-
 
 
 bot.polling(none_stop=True)
