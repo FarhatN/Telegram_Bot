@@ -32,6 +32,8 @@ def help(message):
 @bot.message_handler(commands=['add'])
 def add(message):
     command = message.text.split(maxsplit=2)
+    date = command[1]
+    task = command[2]
     bot.send_message(message.chat.id, 'Команда принята')
 
 
