@@ -29,9 +29,11 @@ def help(message):
     bot.send_message(message.chat.id, HELP)
 
 
-@bot.message_handler(content_types=["text"])
-def echo(message):
-    bot.send_message(message.chat.id, message.text)
+@bot.message_handler(commands=['add'])
+def add(message):
+    print(message.text)
+    bot.send_message(message.chat.id, 'Команда принята')
+
 
 
 bot.polling(none_stop=True)
