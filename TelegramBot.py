@@ -53,6 +53,14 @@ def random_add(message):
 @bot.message_handler(commands=['show', 'print'])
 def show(message):
     command = message.text.split(maxsplit=1)
+    date = command[1].lower()
+    text = ''
+    if date tasks:
+        text = date.upper() + '\n'
+        for tasks in tasks[date]:
+            text = text + '0' + task + '\n'
+    else:
+        text = 'Задач на эту дату нет'
 
 
 bot.polling(none_stop=True)
