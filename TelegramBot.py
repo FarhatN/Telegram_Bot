@@ -34,7 +34,8 @@ def add(message):
     command = message.text.split(maxsplit=2)
     date = command[1]
     task = command[2]
-    bot.send_message(message.chat.id, 'Команда принята')
+    text = 'Задача ' + task + 'добавлена на дату' + date
+    bot.send_message(message.chat.id, text)
 
 
 bot.polling(none_stop=True)
