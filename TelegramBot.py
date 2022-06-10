@@ -38,4 +38,9 @@ def add(message):
     bot.send_message(message.chat.id, text)
 
 
+@bot.message_handler(commands=['random'])
+def random_add(message):
+
+
+
 bot.polling(none_stop=True)
