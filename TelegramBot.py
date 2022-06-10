@@ -48,18 +48,16 @@ def random(message):
     bot.send_message(message.chat.id, f'Задача {task} добавлена на сегодня')
 
 
-@bot.message_handler(commands=['show', 'print'])
-def show(message):
-    command = message.text.split(maxsplit=1)
-    date = command[1].lower()
-    text = ''
-    if date tasks:
-        text = date.upper() + '\n'
-        for tasks in tasks[date]:
-            text = text + '0' + task + '\n'
+@bot.message_handler(commands=['show'])
+def print_(message):
+    date = message.text.split()[1].lower()
+    if date in todos:
+        tasks = ''
+        for task in todos[date]:
+            tasks += f'[ ] {task}\n'
     else:
-        text = 'Задач на эту дату нет'
-    bot.send_message(message.chat.id, text)
+        tasks = 'Такой даты нет'
+    bot.send_message(message.chat.id, tasks)
 
 
 bot.polling(none_stop=True)
