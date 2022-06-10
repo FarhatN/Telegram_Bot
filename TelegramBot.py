@@ -13,6 +13,17 @@ HELP = '''
 '''
 
 
+tasks = {}
+
+
+def add_todo(date, task):
+    date = date.lower()
+    if todos.get(date) is not None:
+        todos[date].append(task)
+    else:
+        todos[date] = [task]
+
+
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, HELP)
